@@ -1,0 +1,41 @@
+# 第1周 学习资料汇总
+
+## 一、官方权威文档
+
+### FastAPI 官方中文教程
+1.  [第一步：环境搭建与第一个接口](https://fastapi.tiangolo.com/zh/tutorial/first-steps/)
+    - 对应知识点：FastAPI 基础、uvicorn 启动、交互式文档
+    - 学习重点：安装方式、最简代码结构、/docs 文档使用
+2.  [路径参数](https://fastapi.tiangolo.com/zh/tutorial/path-params/)
+    - 对应知识点：RESTful 资源定位、路径参数基础
+    - 学习重点：参数类型自动转换、预设值枚举
+3.  [查询参数](https://fastapi.tiangolo.com/zh/tutorial/query-params/)
+    - 对应知识点：列表过滤分页、可选参数、默认值
+    - 学习重点：查询参数与路径参数的区别、默认值设置
+4.  [路径参数数值校验](https://fastapi.tiangolo.com/zh/tutorial/path-params-numeric-validations/)
+    - 对应知识点：Path 校验、数值范围约束
+    - 学习重点：gt / ge / lt / le 校验规则、参数元数据
+5.  [请求体字段校验](https://fastapi.tiangolo.com/zh/tutorial/body-fields/)
+    - 对应知识点：Field 校验、请求体验证规则
+    - 学习重点：字符串长度限制、数值范围、字段描述
+6.  [处理错误与 HTTP 异常](https://fastapi.tiangolo.com/zh/tutorial/handling-errors/)
+    - 对应知识点：HTTPException、标准状态码、异常抛出
+    - 学习重点：404 异常抛出、自定义异常响应
+7.  [依赖注入入门](https://fastapi.tiangolo.com/zh/tutorial/dependencies/intro/)
+    - 对应知识点：Depends 用法、公共逻辑抽离
+    - 学习重点：依赖的执行逻辑、注入方式
+
+### Pydantic 官方中文文档
+1.  [Pydantic 总览](https://docs.pydantic.dev/latest/zh-hans/)
+    - 对应知识点：数据模型底层原理、自动校验机制
+2.  [字段校验完整规则](https://docs.pydantic.dev/latest/zh-hans/concepts/fields/)
+    - 对应知识点：Field 高级校验、约束类型
+    - 拓展学习：深入了解所有可用的校验规则
+
+## 二、核心知识点专项参考
+1.  [RESTful API 设计指南](https://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+    - 对应知识点：RESTful 设计思想、接口命名规范
+    - 学习重点：资源导向设计、HTTP 方法语义
+2.  [MDN HTTP 状态码规范](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
+    - 对应知识点：404 / 422 / 201 / 204 等状态码语义
+    - 学习重点：4xx 客户端错误与 5xx 服务端错误的分界
