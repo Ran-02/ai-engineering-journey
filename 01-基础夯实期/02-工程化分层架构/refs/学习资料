@@ -1,0 +1,55 @@
+# 第2周 学习资料汇总
+
+## 一、官方权威文档
+
+### FastAPI 官方中文教程
+1.  [更大的应用：多文件与路由拆分](https://fastapi.tiangolo.com/zh/tutorial/bigger-applications/)
+    - 对应知识点：APIRouter 模块化、项目目录结构、路由前缀与标签
+    - 学习重点：路由实例化、主应用挂载、官方推荐文件结构
+2.  [处理错误：全局异常处理器](https://fastapi.tiangolo.com/zh/tutorial/handling-errors/)
+    - 对应知识点：自定义异常处理、请求验证异常重写、统一错误响应
+    - 学习重点：覆盖默认异常处理器、自定义异常类、异常返回格式统一
+3.  [中间件](https://fastapi.tiangolo.com/zh/tutorial/middleware/)
+    - 对应知识点：HTTP 中间件写法、洋葱模型执行流程、响应修改
+    - 学习重点：中间件装饰器、call_next 调用、响应头添加、耗时统计实现
+
+### Python 官方中文文档
+1.  [logging 日志入门教程](https://docs.python.org/zh-cn/3/howto/logging.html)
+    - 对应知识点：日志分级、基础配置、格式化输出
+    - 学习重点：五级日志级别、Logger/Handler/Formatter 组件、日志格式配置
+2.  [logging 日志最佳实践指南](https://docs.python.org/zh-cn/3/howto/logging-cookbook.html)
+    - 对应知识点：生产级日志配置、多输出源、滚动日志
+    - 拓展学习：文件日志、按天切割、多模块日志复用
+
+## 二、分日学习资料对应
+### Day 1：APIRouter 路由模块化
+**核心主题**：按业务模块拆分接口，解决单文件膨胀问题
+1.  必看官方文档：[更大的应用 - APIRouter 基础用法](https://fastapi.tiangolo.com/zh/tutorial/bigger-applications/)
+2.  学习重点：路由实例创建、prefix 前缀配置、tags 文档分组、主应用挂载路由
+
+### Day 2：分层架构设计与目录规范
+**核心主题**：关注点分离原则，明确各层职责边界
+1.  必看官方文档：[更大的应用 - 项目文件结构](https://fastapi.tiangolo.com/zh/tutorial/bigger-applications/#_1)
+2.  学习重点：官方推荐目录结构、各模块导入方式、分层职责划分思路
+
+### Day 3：全局异常处理器
+**核心主题**：统一错误返回格式，建立异常兜底机制
+1.  必看官方文档：[处理错误 - 覆盖异常处理器](https://fastapi.tiangolo.com/zh/tutorial/handling-errors/#_8)
+2.  学习重点：重写请求验证异常、自定义异常处理器、统一响应格式
+
+### Day 4：中间件与洋葱模型
+**核心主题**：无侵入实现全链路请求拦截
+1.  必看官方文档：[中间件](https://fastapi.tiangolo.com/zh/tutorial/middleware/)
+2.  学习重点：中间件标准写法、call_next 执行逻辑、响应对象修改、洋葱模型流程
+
+### Day 5：结构化日志体系
+**核心主题**：生产级日志规范，替代 print 调试
+1.  必看官方文档：[Python logging 入门教程](https://docs.python.org/zh-cn/3/howto/logging.html)
+2.  学习重点：日志五级分类、格式化配置、不同级别适用场景、日志封装
+
+## 三、补充拓展资料
+1.  [阿里云开发者：后端分层架构设计思想](https://developer.aliyun.com/article/767829)
+    - 对应知识点：分层架构核心原则、各层职责边界、设计思想
+    - 学习重点：关注点分离、改动隔离、分层的工程价值
+2.  [MDN HTTP 中间件与代理基础](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Proxy_servers_and_tunneling)
+    - 对应知识点：反向代理、请求拦截的通用原理

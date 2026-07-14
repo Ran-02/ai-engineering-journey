@@ -1,0 +1,63 @@
+# 第3周 学习资料汇总
+
+## 一、官方权威文档
+
+### FastAPI 官方中文教程
+1.  [SQL 关系型数据库完整教程](https://fastapi.tiangolo.com/zh/tutorial/sql-databases/)
+    - 对应知识点：FastAPI + SQLAlchemy 完整集成方案、数据库会话依赖、CRUD实战
+    - 学习重点：目录结构、Engine/Session/Base 配置、get_db 依赖写法、接口与数据库联动
+
+### SQLAlchemy 2.0 官方中文文档
+1.  [ORM 快速入门](https://docs.sqlalchemy.org.cn/en/20/orm/quickstart.html)
+    - 对应知识点：ORM核心思想、映射类定义、增删改查基础操作
+    - 学习重点：声明式映射、创建会话、对象操作、事务提交
+2.  [引擎 Engine 配置指南](https://docs.sqlalchemy.org.cn/en/20/core/engines.html)
+    - 对应知识点：数据库连接引擎、连接池配置、SQLite/MySQL连接地址写法
+    - 学习重点：create_engine 参数、连接池参数、调试日志开关
+3.  [Session 会话基础](https://docs.sqlalchemy.org.cn/en/20/orm/session_basics.html)
+    - 对应知识点：会话生命周期、事务管理、对象状态跟踪
+    - 学习重点：session的创建与关闭、commit/rollback/refresh 用法
+
+### Pydantic 官方中文文档
+1.  [模型配置 · 任意类实例适配（from_attributes）](https://docs.pydantic.dev/latest/zh-hans/concepts/models/#arbitrary-class-instances)
+    - 对应知识点：ORM对象转Pydantic响应模型、双层模型数据转换
+    - 学习重点：from_attributes 配置、ORM对象自动序列化原理
+
+## 二、分日学习资料对应
+### Day 1：ORM核心思想与入门
+**核心主题**：理解ORM设计理念，跑通第一个数据库操作
+1.  必看官方文档：[SQLAlchemy ORM 快速入门](https://docs.sqlalchemy.org.cn/en/20/orm/quickstart.html)
+2.  必看官方文档：[FastAPI SQL数据库教程](https://fastapi.tiangolo.com/zh/tutorial/sql-databases/)
+3.  学习重点：什么是对象关系映射、ORM相比原生SQL的优势、基础增删改查写法
+
+### Day 2：SQLAlchemy三大核心组件
+**核心主题**：掌握Engine、Session、Base的职责与用法
+1.  必看官方文档：[引擎 Engine 配置指南](https://docs.sqlalchemy.org.cn/en/20/core/engines.html)
+2.  必看官方文档：[Session 会话基础](https://docs.sqlalchemy.org.cn/en/20/orm/session_basics.html)
+3.  学习重点：
+    - Engine：负责数据库连接与连接池
+    - Base：所有数据库模型的父类，负责表结构映射
+    - Session：单次数据库对话，负责增删改查与事务
+
+### Day 3：双层模型设计原则
+**核心主题**：理解DB模型与接口模型分离的意义
+1.  必看官方文档：[Pydantic from_attributes 配置](https://docs.pydantic.dev/latest/zh-hans/concepts/models/#arbitrary-class-instances)
+2.  必看官方文档：[FastAPI SQL数据库 - 响应模型](https://fastapi.tiangolo.com/zh/tutorial/sql-databases/#_6)
+3.  学习重点：两层模型的职责边界、字段脱敏、前后端协议与数据库存储解耦
+
+### Day 4：会话生命周期与依赖注入
+**核心主题**：掌握yield实现会话自动管理的原理
+1.  必看官方文档：[FastAPI SQL数据库 - 创建依赖](https://fastapi.tiangolo.com/zh/tutorial/sql-databases/#_5)
+2.  必看官方文档：[Session 事务与生命周期](https://docs.sqlalchemy.org.cn/en/20/orm/session_basics.html)
+3.  学习重点：yield的执行流程、会话自动关闭、连接泄露规避、请求与会话的一一对应关系
+
+### Day 5：事务管理与CRUD实战
+**核心主题**：掌握事务ACID特性，完成全接口数据库改造
+1.  必看官方文档：[FastAPI SQL数据库 - CRUD操作](https://fastapi.tiangolo.com/zh/tutorial/sql-databases/#crud)
+2.  学习重点：commit/rollback的使用时机、增删改必须提交事务、查询无需提交、异常自动回滚
+
+## 三、补充拓展资料
+1.  [SQLAlchemy 2.0 中文文档总目录](https://docs.sqlalchemy.org.cn/en/20/contents.html)
+    - 作为工具书查阅，遇到具体API可以检索
+2.  [掘金：ORM双层模型分离与CRUD最佳实践](https://juejin.cn/post/7654792119693721641)
+    - 对应知识点：分层思路、工程化写法参考
