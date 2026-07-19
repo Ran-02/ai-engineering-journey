@@ -1,8 +1,8 @@
-from fastapi import FastAPI, HTTPException, Path, Query, Depends, Body
-import uvicorn
-from pydantic import BaseModel, Field
+from fastapi import APIRouter, HTTPException, Path, Query, Depends, Body
+from app.schemas.task import TaskCreate, Task
+from app.utils.logger import logger
 
-app = FastAPI(title="任务管理系统", description="第一周FastAPI核心开发实战", version="1.0.0")
+router = APIRouter(prefix="/tasks", tags=["任务管理"])
 
 def get_pagination(
     skip: int = Query(default=0, ge=0, description="跳过的记录数"),
@@ -10,29 +10,11 @@ def get_pagination(
 ):
     return {"skip": skip, "limit": limit}
 
-
-class TaskCreate(BaseModel):
-    title: str = Field(..., min_length=1, max_length=50, description="任务标题")
-    description: str | None = Field(
-        default=None, max_length=500, description="任务描述"
-    )
-    priority: int = Field(default=1, ge=1, le=5, description="任务优先级，1-5之间")
-
-
-class Task(TaskCreate):
-    task_id: int
-
-
 tasks_db: list[Task] = []
 next_id: int = 1
 
 
-@app.get("/", summary="根路径欢迎")
-def root():
-    return {"message": "欢迎使用任务管理系统"}
-
-
-@app.post("/tasks", summary="创建任务", status_code=201)
+@router.post("", summary="创建任务", status_code=201)
 def create_task(task: TaskCreate):
     global next_id
     new_task = Task(task_id=next_id, **task.model_dump())
@@ -41,14 +23,14 @@ def create_task(task: TaskCreate):
     return new_task
 
 
-@app.get("/tasks", summary="查询任务列表")
+@router.get("", summary="查询任务列表")
 def read_tasks(pagination: dict = Depends(get_pagination)):
     skip = pagination["skip"]
     limit = pagination["limit"]
     return tasks_db[skip : skip + limit]
 
 
-@app.get("/tasks/{task_id}", summary="查询指定任务")
+@router.get("/{task_id}", summary="查询指定任务")
 def read_task(
     task_id: int = Path(..., gt=0, description="任务ID必须大于0"),
 ):
@@ -58,7 +40,7 @@ def read_task(
     raise HTTPException(status_code=404, detail="任务未找到")
 
 
-@app.put("/tasks/{task_id}", summary="更新指定任务")
+@router.put("/{task_id}", summary="更新指定任务")
 def update_task(
     *,
     task_id: int = Path(..., gt=0, description="任务ID必须大于0"),
@@ -72,7 +54,7 @@ def update_task(
     raise HTTPException(status_code=404, detail="任务未找到")
 
 
-@app.delete("/tasks/{task_id}", summary="删除指定任务", status_code=204)
+@router.delete("/{task_id}", summary="删除指定任务", status_code=204)
 def delete_task(
     task_id: int = Path(..., gt=0, description="任务ID必须大于0"),
 ):
